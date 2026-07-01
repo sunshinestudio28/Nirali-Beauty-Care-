@@ -1,0 +1,6 @@
+{
+  "name": "Nirali Beauty Care",
+  "description": "Surat's most trusted premium beauty salon in Vesu. Specializing in Hair Botox, Hydra Facials, and Bridal Makeup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
+  
+  --color-brand-pink: #E91E63;
+  --color-brand-pink-soft: #FCE4EC;
+  --color-brand-gold: #D4AF37;
+  --color-alabaster: #FFFDFD;
+  --color-obsidian: #111111;
+  
+  --animate-float-slow: float-slow 20s ease-in-out infinite;
+  --animate-float-medium: float-medium 16s ease-in-out infinite;
+  --animate-float-reverse: float-reverse 24s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s infinite linear;
+
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    50% { transform: translate(60px, -40px) scale(1.15); }
+  }
+  @keyframes float-medium {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    50% { transform: translate(-50px, 50px) scale(1.1); }
+  }
+  @keyframes float-reverse {
+    0%, 100% { transform: translate(0px, 0px) scale(1.1); }
+    50% { transform: translate(40px, -60px) scale(0.9); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+/* Custom premium styles */
+@layer utilities {
+  .glass-premium {
+    backdrop-filter: saturate(190%) blur(24px);
+    -webkit-backdrop-filter: saturate(190%) blur(24px);
+    background-color: rgba(255, 253, 253, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 
+      0 4px 30px rgba(0, 0, 0, 0.02),
+      inset 0 1px 1px rgba(255, 255, 255, 0.8),
+      inset 0 -1px 1px rgba(233, 30, 99, 0.05);
+  }
+
+  .glass-premium-dark {
+    backdrop-filter: saturate(190%) blur(28px);
+    -webkit-backdrop-filter: saturate(190%) blur(28px);
+    background-color: rgba(17, 17, 17, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 10px 40px rgba(0, 0, 0, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15),
+      inset 0 -1px 1px rgba(212, 175, 55, 0.05);
+  }
+
+  .glass-card {
+    backdrop-filter: saturate(170%) blur(16px);
+    -webkit-backdrop-filter: saturate(170%) blur(16px);
+    background-color: rgba(255, 253, 253, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 
+      0 8px 32px rgba(233, 30, 99, 0.03),
+      inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-card-dark {
+    backdrop-filter: saturate(170%) blur(20px);
+    -webkit-backdrop-filter: saturate(170%) blur(20px);
+    background-color: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 
+      0 12px 36px rgba(0, 0, 0, 0.25),
+      inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .glow-dot {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233, 30, 99, 0.12) 0%, rgba(212, 175, 55, 0.04) 50%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+    z-index: 0;
+  }
+
+  /* Custom high-end text gold glow */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #FFF 30%, #D4AF37 70%, #E5C158 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-pink-gradient {
+    background: linear-gradient(135deg, #111111 20%, #E91E63 70%, #9C27B0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gold-shimmer-btn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-shimmer-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: 0.75s;
+    opacity: 0;
+  }
+
+  .gold-shimmer-btn:hover::after {
+    opacity: 1;
+    left: 125%;
+  }
+}
+
+/* Custom high-end smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom premium minimalist scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFDFD;
+}
+::-webkit-scrollbar-thumb {
+  background: #E91E63;
+  border-radius: 4px;
+  border: 2px solid #FFFDFD;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Elegant custom text selection */
+::selection {
+  background: #FCE4EC;
+  color: #E91E63;
+}
